@@ -1,5 +1,7 @@
 # Hack-the-box writeup: CAP Machine
 
+------------------
+
 **IP**: 10.10.10.245
 
 <img src="img/cap_logo.png" width="500" height="500" />
@@ -22,13 +24,15 @@
 
 ## Step 2: Scanning con nmap
 
+---------------------------------------------------------------------
+
 - Como primer paso realizaremos un scanning con nmap:
 
-  ```bash
-  nmap -sS --min-rate=5000 -Pn -vvv -n 10.10.10.225 -OG allports #by s4vitar
-  ```
+```bash
+nmap -sS --min-rate=5000 -Pn -vvv -n 10.10.10.225 -OG allports #by s4vitar
+```
 
-  <img src="img/nmap_1.png" width="900" height="400" />
+<img src="img/nmap_1.png" width="900" height="400" />
 
 - Extraidos los puertos ahora haremos un informe más detallado de los servicios que se encuentran en esos puertos.
 
@@ -46,6 +50,8 @@
 
 ## STEP 3: Ver que onda con la página web
 
+----------------------------------------
+
 - Ya que vimos el puerto 80 abierto y vimos que correspondia al servicio http, vamos a entrar a la página para revisarla.
 
 - Buscando un rato me encontre con la sección de snapshot donde pude ver que podia descargalos como pcap, descargué algunos que no me dieron resultado hasta que me encontré con **data/0** este el que más contenido tenia, emocionado fuí a descargarlo. 
@@ -60,23 +66,29 @@
 
 ## Accediendo a FTP 
 
+------------
+
 - Ya encontradas las las credenciales procedemos al servicio ftp para ver si funcionan.
 
-  ```bash
-  ftp 10.10.10.245
-  ```
+```bash
+ftp 10.10.10.245
+```
 
-  <img src="img/ftp.png" width="700" height="300" />
+<img src="img/ftp.png" width="700" height="300" />
 
-  > User: nathan
-  >
-  > Password: Buck3tH4TF0RM3!
+> User: nathan
+>
+> Password: Buck3tH4TF0RM3!
+
+
 
 ## Buscando user flag
 
+--------------
+
 - El user de esta máquina es easy, si damos un dir en el FTP veremos el archivo.
 
-  <img src="img/dir.png" width="900" height="300" />
+<img src="img/dir.png" width="900" height="300" />
 
 - simplemente si hacemos un **get user.txt** podremos obtener en nuesta máquina de atacante el file de user.txt y podemos visualizarlo.
 
@@ -86,11 +98,13 @@
 
 ## Buscando root flag
 
+-----------------------------
+
 - Ya tenemos la user flag y este es un buen punto pero falta la más importante, la root flag, lo primero que intentamos fue insertar las mismas credenciales FTP a ssh.
 
-  > **Las credenciales utilizadas para acceder por ssh son las mismas que usamos para FTP**
+> **Las credenciales utilizadas para acceder por ssh son las mismas que usamos para FTP**
 
-  <img src="img/shh.png" width="200" height="50" />
+<img src="img/shh.png" width="200" height="50" />
 
 - Ahora nos encontramos en ssh lo primero que haremos para escalar privilegios es explotar un permiso SUID para escalar en este caso python 3
 
