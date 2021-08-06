@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>2.Detallar el funcionamiento de Cyberchef - Security Onion</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "2.Detallar el funcionamiento de Cyberchef";
+    var mkdocs_page_input_path = "Detallar_el_funcionamiento_de_CyberChef.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="Detallar_el_funcionamiento_de_CyberChef.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Security Onion</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Instalar_Securi_y_Onion_como_servidor_standalone/">1.Security Onion como Standalone server</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">2.Detallar el funcionamiento de Cyberchef</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#que-es-cyberchef">Qué es Cyberchef ?</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#en-general">En general</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#explorando-la-herramienta">Explorando la herramienta</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Kibana/">3.Kibana</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../squil/">4.Squil</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Networkminer/">5.NetworkMiner</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Security Onion</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>2.Detallar el funcionamiento de Cyberchef</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="detallar-el-funcionamiento-de-cyberchef"><strong>Detallar el funcionamiento de CyberChef</strong></h1>
+<h2 id="que-es-cyberchef">Qué es Cyberchef ?</h2>
+<p><strong>Cyberchef</strong> es una herramienta que nos permite descubrir secretos, decodificar  datos y, en general, buscar y encontrar información que está  aparentemente oculta al ojo humano. El mundo de la tecnología en  general, y de internet, en particular, está lleno de secretos.</p>
+<p><a href="https://protegermipc.net/2021/05/26/cyberchef-herramienta-para-descubrir-secretos-y-decodificar-datos/">Fuente de la definición</a></p>
+<h2 id="en-general"><strong>En general</strong></h2>
+<p>En mi opinión personal en una definición más llana simplemente es una plataforma que nos permite codificar y decodificar inputs en diferentes tipos de encriptación. </p>
+<p>Esta es una implementación que nos viene integrada en la instalación de <strong>Security Onion</strong>, que nos permite ejecutar esto de manera local.</p>
+<p><img alt="so28" src="../img/so_28.png"/></p>
+<p>Ahora cabe destacar que ya como está la tecnología hoy en día, ya tenemos un cyberchef totalmente online, sin tenerlo instalado en nuestro servidor. <a href="https://gchq.github.io/CyberChef/">Click aquí para ir al cyberchef online</a></p>
+<p><img alt="so29" src="../img/so_29.png"/></p>
+<p><strong>Nos ofrece lo mismo pero sin tener nada instalado :) </strong></p>
+<h2 id="explorando-la-herramienta"><strong>Explorando la herramienta</strong></h2>
+<p>Lo primero que encontramos cuando accedemos a la web de cyberchef en la columna izquierda son los tipos de codificadores en los que podemos codificar nuestros inputs.</p>
+<p><img alt="so30" src="../img/so_30.png"/></p>
+<p>Luego justo al lado tenemos la sección de <strong>Recipe</strong> que en español viene siendo receta (como ya saben la página está orienta a una especie de chef o cocina) pero es refiriendose a la sección donde arrastaremos los codificadores que queremos usar.</p>
+<p><img alt="so31" src="../img/so_31.png"/></p>
+<p>Las siguientes dos opciones que veremos sin simples las del <strong>INPUT Y OUTPUT</strong>, una por donde introduciremos la string a codificar o decodificar y otra por donde saldrá el resultado según lo que queramos.</p>
+<p><img alt="so32" src="../img/so_32.png"/></p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../Kibana/" title="3.Kibana">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../Instalar_Securi_y_Onion_como_servidor_standalone/" title="1.Security Onion como Standalone server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../Instalar_Securi_y_Onion_como_servidor_standalone/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../Kibana/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

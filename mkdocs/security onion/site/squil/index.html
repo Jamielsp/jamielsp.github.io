@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>4.Squil - Security Onion</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "4.Squil";
+    var mkdocs_page_input_path = "squil.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="squil.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Security Onion</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Instalar_Securi_y_Onion_como_servidor_standalone/">1.Security Onion como Standalone server</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Detallar_el_funcionamiento_de_CyberChef/">2.Detallar el funcionamiento de Cyberchef</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Kibana/">3.Kibana</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">4.Squil</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#realizar-demostracion-de-sguil">Realizar demostración de Sguil.</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Networkminer/">5.NetworkMiner</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Security Onion</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>4.Squil</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="sguil"><strong>Sguil</strong></h1>
+<hr/>
+<p><img alt="squil" src="../img/squil.gif"/></p>
+<p><a href="http://sguil.net:">Squil web page</a></p>
+<p><strong>Sguil</strong> está construido por analistas de seguridad de redes para analistas de seguridad de redes. El componente principal de Sguil es una interfaz gráfica de usuario intuitiva que proporciona acceso a eventos en tiempo real, datos de sesión y capturas de paquetes en bruto. Sguil facilita la práctica de la supervisión de la seguridad de la red y el análisis basado en eventos.</p>
+<h2 id="realizar-demostracion-de-sguil"><strong>Realizar demostración de Sguil.</strong></h2>
+<p>Para verificar el funcionamiento de Squil haremos un intento fallido por ssh, usaremos nuestra máquina local para realizar esto.</p>
+<ol>
+<li>Abriremos nuestro CMD.</li>
+<li>escribiremos:</li>
+</ol>
+<pre><code class="language-bash">ssh {ip de Security Onion} -l {user} # ejemplo ssh 10.0.0.60 -l jamiel
+</code></pre>
+<p><img alt="so23" src="../img/so_24.png"/></p>
+<ol>
+<li>Damos click en enter y escribimos cualquier password incorrecta.</li>
+</ol>
+<p><img alt="so25" src="../img/so_25.png"/></p>
+<p>Hecho esto podemos ir a nuestro SQUIL y ver los resultados</p>
+<p><img alt="so26" src="../img/so_26.png"/></p>
+<p>En este caso intentamos con el user admin pero, de la misma forma registra el evento si somos otro user, por ejemplo jamiel.</p>
+<p><img alt="so27" src="../img/so_27.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Que conste que estos registros de eventos no solo se tratan de ssh, sino que registraran eventos de muchas de las conexiones entrantes siempre y cuando se haga algo que el software lo decte como extraño.</p>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../Networkminer/" title="5.NetworkMiner">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../Kibana/" title="3.Kibana"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../Kibana/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../Networkminer/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

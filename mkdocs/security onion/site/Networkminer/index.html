@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>5.NetworkMiner - Security Onion</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "5.NetworkMiner";
+    var mkdocs_page_input_path = "Networkminer.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="Networkminer.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Security Onion</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Instalar_Securi_y_Onion_como_servidor_standalone/">1.Security Onion como Standalone server</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Detallar_el_funcionamiento_de_CyberChef/">2.Detallar el funcionamiento de Cyberchef</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Kibana/">3.Kibana</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../squil/">4.Squil</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">5.NetworkMiner</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#que-es-network-miner">Qué es Network Miner ?</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#analizando-pcaps-con-network-miner">Analizando PCAPS con Network Miner</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Security Onion</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>5.NetworkMiner</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="network-miner"><strong>Network Miner</strong></h1>
+<hr/>
+<p><img alt="net" src="../img/net.png"/></p>
+<h2 id="que-es-network-miner"><strong>Qué es Network Miner ?</strong></h2>
+<p>NetworkMiner es una herramienta de análisis forense de redes (NFAT) para Windows. NetworkMiner puede ser utilizado como una herramienta pasiva de sniffer/captura de paquetes para detectar sistemas operativos, sesiones, nombres de host, puertos abiertos, etc. sin poner ningún tráfico en la red. NetworkMiner también puede analizar los archivos PCAP para el análisis fuera de línea y para regenerar/reensamblar los archivos transmitidos y los certificados de los archivos PCAP. </p>
+<h2 id="analizando-pcaps-con-network-miner"><strong>Analizando PCAPS con Network Miner</strong></h2>
+<p>Hemos obtenido una captura de red que nos ha dado como resultado un archivo <strong>.PCAP</strong> que contiene todo el tráfico que estaba pasando por la red, podemos hacer uso de herramientas como Network Miner que nos ayudan a parsear la información del .PCAP de una manera rápida y sencilla.</p>
+<p>Lo primero que haremos es abrir nuestra tool Network Miner y pasarle el archivo .PCAP.</p>
+<p><img alt="so33" src="../img/so_33.png"/></p>
+<p><img alt="so34" src="../img/so_34.png"/></p>
+<p><img alt="so35" src="../img/so_35.png"/></p>
+<p>Esperamos que toda la info se parsee para poder verla de una manera ordenada, vamos a mostrar las partes más importantes de la tool.</p>
+<p>1.<strong>HOSTS</strong> en esta sección veremos todos los host que se encontraron durante el momento de la captura, donde podemos ver información como su dirección IP, su dirección MAC. su HOSTNAME...</p>
+<p><img alt="so36" src="../img/so_36.png"/></p>
+<p>2.<strong>Files</strong> esta es otra parte importante de esta tool, vamos a poder encontrarnos con los archivos que se han transmitido por protocolos no seguros, que conste que estos archivos los podemos guardar en nuestra pc y revisarlos.</p>
+<p><img alt="so37" src="../img/so_37.png"/></p>
+<p>3.<strong>Credential</strong> La sección de credenciales mostrará todas las credenciales que se han transmitido por protocolos no seguros como un FTP o HTTP.</p>
+<p><img alt="so38" src="../img/so_38.png"/></p>
+<p>Existen otras secciones que también son muy importantes como la de mensajes o a la de imágenes pero estas solo están permitidas en la versión de pago. </p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral" href="../squil/" title="4.Squil"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../squil/" style="color: #fcfcfc">« Previous</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

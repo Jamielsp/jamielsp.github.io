@@ -1,0 +1,15 @@
+site_name: Security Onion
+theme: readthedocs
+nav:
+ - Home: 'index.md'
+ - 1.Security Onion como Standalone server: 'Instalar_Securi_y_Onion_como_servidor_standalone.md'
+ - 2.Detallar el funcionamiento de Cyberchef: 'Detallar_el_funcionamiento_de_CyberChef.md'
+ - 3.Kibana: 'Kibana.md'
+ - 4.Squil: 'squil.md'
+ - 5.NetworkMiner: 'Networkminer.md'
+markdown_extensions:
+ - attr_list
+ - admonition
+plugins:
+ - search
+ - pdf-export

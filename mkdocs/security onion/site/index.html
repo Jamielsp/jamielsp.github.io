@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="None" name="description"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Security Onion</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet"/>
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="index.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Security Onion</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#que-es-security-onion">¿Qué es Security Onion?</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Instalar_Securi_y_Onion_como_servidor_standalone/">1.Security Onion como Standalone server</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Detallar_el_funcionamiento_de_CyberChef/">2.Detallar el funcionamiento de Cyberchef</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Kibana/">3.Kibana</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="squil/">4.Squil</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Networkminer/">5.NetworkMiner</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Security Onion</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Home</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<p><img alt="logo" src="img/logo.jpg" style="zoom: 33%;"/></p>
+<p><strong>Nombre del estudiante:</strong> Jamiel Santana.</p>
+<p><strong>Nombre del profesor:</strong> Gean Sosa.</p>
+<p><strong>Materia:</strong> Fundamentos de seguridad.</p>
+<p><strong>Institución:</strong> ITLA.</p>
+<hr/>
+<h1 id="implementar-security-onion">Implementar Security Onion</h1>
+<ul>
+<li>Instalar <strong>Security Onion</strong> como servidor standalone.</li>
+<li>Configurar IDS.</li>
+<li>Realizar demostración de <strong>Sguil.</strong></li>
+<li>Configurar <strong>Suricata.</strong></li>
+<li>Configurar <strong>Kibana</strong> para la visualización de los logs de <strong>Suricata.</strong></li>
+<li>Detallar el funcionamiento de <strong>CyberChef.</strong></li>
+<li>Realizar demostración de <strong>NetworkMiner.</strong></li>
+</ul>
+<h2 id="que-es-security-onion"><strong>¿Qué es Security Onion?</strong></h2>
+<p>Es una distribución Linux que está orientada a la detección de  amenazas, monitorización de seguridad y gestión de los logs. Una de las  características más destacadas de Security Onion, es que cuenta con  múltiples herramientas incluidas por defecto, por lo que no tendremos  que instalar nada ni complicarnos demasiado la vida para su puesta en  marcha. Por ejemplo, puedes acceder a Elasticsearch, Snort, Zeek, Wazuh, Cyberchef y NetworkMiner entre otras herramientas. Por otro lado, es  muy sencilla de implementar, porque cuenta con un asistente de  instalación que permite que en minutos esta suite se ponga en marcha.</p>
+<p>Una de las razones por las cuales Security Onion debe ser considerada para las auditorías de redes y seguridad, es la capacidad de juntar  múltiples herramientas top de seguridad en redes en <strong>un sólo paquete</strong>. Esto no solamente lo hace más sencillo de administrar, sino que también facilita el acceso a organizaciones de todo tipo a una solución  integral. Es decir, una solución completa que garantice que los  responsables de la infraestructura y seguridad de las redes tengan el  panorama completo.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="Instalar_Securi_y_Onion_como_servidor_standalone/" title="1.Security Onion como Standalone server">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="Instalar_Securi_y_Onion_como_servidor_standalone/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme_extra.js"></script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
+<!--
+MkDocs version : 1.2.2
+Build Date UTC : 2021-08-06 00:47:40.649435+00:00
+-->

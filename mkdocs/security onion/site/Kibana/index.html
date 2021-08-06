@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>3.Kibana - Security Onion</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "3.Kibana";
+    var mkdocs_page_input_path = "Kibana.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="Kibana.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Security Onion</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Instalar_Securi_y_Onion_como_servidor_standalone/">1.Security Onion como Standalone server</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Detallar_el_funcionamiento_de_CyberChef/">2.Detallar el funcionamiento de Cyberchef</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">3.Kibana</a>
+<ul class="current">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../squil/">4.Squil</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Networkminer/">5.NetworkMiner</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Security Onion</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>3.Kibana</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h2 id="accediendo-a-kibana"><strong>Accediendo a Kibana</strong></h2>
+<p>Veremos <strong>Kibana</strong> con un simple acceso directo al que podemos dar doble click.</p>
+<p><img alt="so39" src="../img/so_39.png"/></p>
+<p>Una vez abierta, nuestra web se nos abrirá el portal de login, el cual accederemos con las credenciales que hemos designado anteriormente para las plataformas.</p>
+<p><img alt="so40" src="../img/so_40.png"/></p>
+<p>Ya adentro lo primero que veremos es la sección general donde veremos cosas como (el número total de logs, los tipos de sensores que tenemos habilitados...).</p>
+<p><img alt="so41" src="../img/so_41.png"/></p>
+<p>Vamos a mostrar algo muy importante que tiene esta plataforma, dentro de la sección de <strong>Zeek Hunting</strong> existe un apartado llamado <strong>connections</strong>, donde podremos visualizar cosas como el numero total de conexiones que se han hecho en la red, los protocolos más se están utilizando, todas las IPS entrantes y un sin número de cosas más que nos ayudan al monitoreo.</p>
+<p><img alt="so42" src="../img/so_42.png"/></p>
+<p><img alt="so43" src="../img/so_43.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Que conste que solo mostramos esto para dar un review de lo que se puede llegar a ver con esta plataforma, pero el gra1n número de módulos que podemos visualizar es increíble, desde detalladamente servicio por servicio, hasta outputs de herramientas tales como <strong>sysmon</strong>, <strong>OSSEC</strong>, <strong>Beats</strong>, entre otras. Definitivamente una de las tools más completa a nivel de monitoreo de red.</p>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../squil/" title="4.Squil">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../Detallar_el_funcionamiento_de_CyberChef/" title="2.Detallar el funcionamiento de Cyberchef"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../Detallar_el_funcionamiento_de_CyberChef/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../squil/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
