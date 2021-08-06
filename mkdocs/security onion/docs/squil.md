@@ -15,7 +15,7 @@
 Para verificar el funcionamiento de Squil haremos un intento fallido por ssh, usaremos nuestra máquina local para realizar esto.
 
 1. Abriremos nuestro CMD.
-2. escribiremos:
+2. Escribiremos:
 
 ```bash
 ssh {ip de Security Onion} -l {user} # ejemplo ssh 10.0.0.60 -l jamiel
