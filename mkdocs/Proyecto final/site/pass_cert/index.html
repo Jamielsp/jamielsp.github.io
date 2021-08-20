@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS - APACHE + AD + ADAC</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "5.Instalar dicho certificado en su servidor Web y habilitar tr\u00e1fico mediante HTTPS";
+    var mkdocs_page_input_path = "pass_cert.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="pass_cert.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> APACHE + AD + ADAC</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ad/">1.Implementar un dominio en Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adac/">2.Habilitar Active Directory Certificate Authority</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ins-apache/">3.Instalar un servidor web en Linux utilizando Apache</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../unir_linux/">4.Añadir este servidor Linux a Active Directory</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#pasar-la-cert-a-linux-apache">Pasar la cert a Linux Apache</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#conectar-linux-a-carpeta-compartida">Conectar linux a carpeta compartida</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generar-clacves-ssl">Generar clacves SSL</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#verificando-configuracion">Verificando configuración</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nessus/">6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../recursos/">7.Recursos</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">APACHE + AD + ADAC</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="instalar-dicho-certificado-en-su-servidor-web-y-habilitar-trafico-mediante-https"><strong>Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</strong></h1>
+<p>Vamos primeramente a exportar el certificado al formato PFX desde windows server.</p>
+<p>Abriremos nuestro <strong>mmc.exe</strong> procederemos a seguir los pasos de las imagenes mostradas.</p>
+<p><img alt="pc1" src="../img/pc1.png"/></p>
+<p><img alt="pc2" src="../img/pc2.png"/></p>
+<p><img alt="pc3" src="../img/pc3.png"/></p>
+<p><img alt="pc4" src="../img/pc4.png"/></p>
+<p><img alt="pc5" src="../img/pc5.png"/></p>
+<p>Ya teniendo los resultados  de los certificados, accederemos a los certificados personales que hemos generado.</p>
+<p><img alt="pc6" src="../img/pc6.png"/></p>
+<p>Ya estando en el path del certificado, daremos <strong>click derecho en la cert &gt; All Task &gt; Export</strong></p>
+<p><img alt="pc7" src="../img/pc7.png"/></p>
+<p>Hecho esto se nos abrirá el wizarrd para exportar los certificados,  rápidamente daremos click en next.</p>
+<p><img alt="pc8" src="../img/pc8.png"/></p>
+<p><img alt="pc9" src="../img/pc9.png"/></p>
+<p><img alt="pc10" src="../img/pc10.png"/></p>
+<p>En esta sección tendremos que tener pendiente, la password que asignemos ya que es la que utilizaremos más adelante con openssl.</p>
+<p><img alt="pc11" src="../img/pc11.png"/></p>
+<p>Ahora como último paso vamos a seleccionar el fichero donde queremos que se guarde el archivo.</p>
+<p><img alt="pc12" src="../img/pc12.png"/></p>
+<p>Nos muestra los settings que hemos configurado para la exportación, si vemos que todo se encuentra bien damos click en <strong>Finish.</strong></p>
+<p><img alt="pc13" src="../img/PC13.png"/></p>
+<p><img alt="pc14" src="../img/pc14.png"/></p>
+<h2 id="pasar-la-cert-a-linux-apache"><strong>Pasar la cert a Linux Apache</strong></h2>
+<p>Ahora vamos a buscar la manera de pasar el certificado a nuestro servidor web linux, para luego proceder con la instalación del Certificado en nuestro serv web.</p>
+<p>El método que hemos utilizado es crear una carpeta compartida que nos permita obtenter el certificado en nuestro server web. </p>
+<p>En nuestro server manager daremos doble click en <strong>File an Storage Services</strong>, entrando en esta sección hacemos click en <strong>shares</strong>, estando en shares daremos click derecho, y luego daremos click en <strong>New share</strong>, haremos el setup que es muy fácil de hacer.</p>
+<p><img alt="pc15" src="../img/pc15.png"/></p>
+<p>Creado la carpeta compartida, vamos a pasar la cert que creamos anteriormente y lo ponemos en nuestra carperta compartida.</p>
+<p><img alt="pc16" src="../img/pc16.png"/></p>
+<h3 id="conectar-linux-a-carpeta-compartida"><strong>Conectar linux a carpeta compartida</strong></h3>
+<p>En nuestro caso estamos usando Centos 7 como servidor web, para poder acceder a la carpeta compartida tendremos que descargar un paquete llamado <strong>smbclient</strong>, esto lo haremos con el siguiente comando.</p>
+<pre><code class="language-bash">yum install smbclient -y
+</code></pre>
+<p>Ya instalado este paquete nos podemos conectar a la carpeta de la siguiente manera.</p>
+<pre><code class="language-bash">smbclient -U {user} {PATH}  # smbclient -U Administrator //10.0.0.90/cert
+</code></pre>
+<p><img alt="pc17" src="../img/pc17.png"/></p>
+<p>Ya confirmamos que podemos acceder ahora salimos de ese modo y vamos a copiar el certificado directamente a nuestro linux.</p>
+<pre><code class="language-bash">smbget -R -U {USER} smb:{PATH}
+# EJEMPLO
+# smbget -R -U administrator smb://10.0.0.90/cert/
+</code></pre>
+<p><img alt="pc18" src="../img/pc18.png"/></p>
+<h2 id="generar-clacves-ssl"><strong>Generar clacves SSL</strong></h2>
+<p>Obtenido el file <strong>pfx</strong>, vamos a proceder a genernar los archivos necesearios para que nuestra web corra correctamente por medio de https. </p>
+<p>1.Exportar la llave privada del fichero pfx.</p>
+<pre><code class="language-bash">openssl pkcs12 -in fichero_exportado_de_iis.pfx -nocerts -out ca.pem
+</code></pre>
+<p>2.Exportar el certificado del fichero pfx</p>
+<pre><code class="language-bash">openssl pkcs12 -in fichero_exportado_de_iis.pfx -clcerts -nokeys -out cert.pem
+</code></pre>
+<p>3.Eliminar la clave que se adjunta a la clave privada, para que Apache no pregunte por la misma cuando arranca.</p>
+<pre><code class="language-bash">openssl rsa -in ca.pem -out private.key
+</code></pre>
+<p><img alt="pc19" src="../img/PC19.png"/></p>
+<p>Obtenido estos archivos ahora nos toca agregarlos a nuestro virtualhost de la siguiente manera, incluido a esto pondremos una redirección obligatoria de <strong>HTTP --&gt; HTTPS.</strong></p>
+<pre><code class="language-bash">&lt;VirtualHost *:80&gt;
+        ServerName 10.0.0.50 # aquí pueden poner su FQDN o la ip de su serv web
+        ErrorLog /var/www/jamiel/error.log
+        CustomLog /var/www/jamiel/access.log combined 
+        Redirect permanent / https://10.0.0.50/ # Esta linea es la que forza la redirección
+&lt;/Virtualhost&gt;
+
+&lt;VirtualHost _default_:443&gt;
+    SSLEngine On
+    DocumentRoot /var/www/jamiel/public_html
+    ServerName 10.0.0.50
+    # RUTA DE LOS FILES GENERADOS ANTERIORMENTE 
+    SSLCertificateKeyFile /etc/ssl/localcerts/private.key
+    SSLCertificateFile /etc/ssl/localcerts/cert.pem
+    SSLCertificateChainFile /etc/ssl/localcerts/ca.pem
+    # Parámetros adicionales para lograr la conexión https
+    SSLVerifyDepth 5
+    SSLVerifyClient none
+&lt;/VirtualHost&gt;
+</code></pre>
+<p><img alt="pc20" src="../img/pc20.png"/></p>
+<h2 id="verificando-configuracion"><strong>Verificando configuración</strong></h2>
+<p>En este momento vamos reiniciar el servicio de Apache con el comando.</p>
+<pre><code class="language-bash">systemctl restart httpd
+</code></pre>
+<p>Este comando es más que suficiente para reiniciar el servicio, si todo anta bien el comando se debería ejecutar sin ningún output y una vez reiniciado podremos acceder a la web para ver el resultado.</p>
+<p><img alt="pc21" src="../img/pc21.png"/></p>
+<p>Vemos como con solo tipiar la ip de nuestro servidor nos hace la redirección a HTTPS, sin ningún problema. Nuestra web es vista como no segura debido a que el certificado es autofirmado, pero de igual forma el contenido viaja en https.</p>
+<p><img alt="pc22" src="../img/pc22.png"/></p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../nessus/" title="6.Utilizar Nessus para escanear las vulnerabilidades de su servidor">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../unir_linux/" title="4.Añadir este servidor Linux a Active Directory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../unir_linux/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../nessus/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>6.Utilizar Nessus para escanear las vulnerabilidades de su servidor - APACHE + AD + ADAC</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "6.Utilizar Nessus para escanear las vulnerabilidades de su servidor";
+    var mkdocs_page_input_path = "nessus.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="nessus.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> APACHE + AD + ADAC</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ad/">1.Implementar un dominio en Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adac/">2.Habilitar Active Directory Certificate Authority</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ins-apache/">3.Instalar un servidor web en Linux utilizando Apache</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../unir_linux/">4.Añadir este servidor Linux a Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pass_cert/">5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#tls-version-10-protocol-detection">TLS Version 1.0 Protocol Detection</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#solucion">Solución</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-certificate-cannot-be-trusted-and-ssl-self-signed-certificate">SSL Certificate Cannot Be Trusted and SSL Self-Signed Certificate</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#solucion_1">Solución</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-medium-strength-cipher-suites-supported-sweet32">SSL Medium Strength Cipher Suites Supported (SWEET32)</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../recursos/">7.Recursos</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">APACHE + AD + ADAC</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="utilizar-nessus-para-escanear-las-vulnerabilidades-de-su-servidor"><strong>Utilizar Nessus para escanear las vulnerabilidades de su servidor</strong></h1>
+<hr/>
+<p>Ya teniendo listo nuestro <strong>Nessus</strong> le haremos un SCAN a nuestro servidor web para ver que resultados nos da sobre nuestro servidor y así de esta marena buscarle una solución a los errores mostrados. En el caso de este proyecto estaremos resolviendo solo los problemas (medium, hight y critical). </p>
+<p>En mi caso en el informe tuve hallazgos medios y hight, los cuales fueron los siguientes. <a href="../html/scan1.html">Click aquí para ver el informe</a></p>
+<p>Ahora vamos a presentar la solución a cada uno de los problemas.</p>
+<h2 id="tls-version-10-protocol-detection"><strong>TLS Version 1.0 Protocol Detection</strong></h2>
+<p>Este es un problema que se da mucho en los servidores web que no tienen un buen hardening implementado, y es causado debido a que el servicio remoto acepta conexiones cifradas mediante TLS 1.0. TLS 1.0 tiene una serie de defectos de diseño criptográfico. Las implementaciones modernas de TLS 1.0 mitigan estos problemas, pero las versiones más recientes de TLS, como la 1.2 y la 1.3, están diseñadas contra estos fallos y deberían utilizarse siempre que sea posible.</p>
+<h3 id="solucion"><strong>Solución</strong></h3>
+<p>Simplemente tendremos que dirigirnos a nuestro archivo <strong>ssl.conf</strong> que en mi caso y seguramente en el de ustedes este archivo se encuentre en la ruta <strong>/etc/httpd/conf.d/ssl.conf</strong> abrimos este archivo en mi caso con nano</p>
+<pre><code class="language-bash">nano /etc/httpd/conf.d/ssl.conf
+</code></pre>
+<p><img alt="ne1" src="../img/ne1.png"/></p>
+<p>Aquí vamos poner lo siguiente.</p>
+<pre><code class="language-bash">SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+</code></pre>
+<p>Esto desactivará las versiones inseguras de TLS en la web, a mi me quedó de la siguiente manera.</p>
+<p><strong>Hay que tener en cuenta que la última linea de este file es  y por lo tanto todos los parámetros que vayamos a agregar deben ir antes de esta línea.</strong></p>
+<p><img alt="ne2" src="../img/ne2.png"/></p>
+<h2 id="ssl-certificate-cannot-be-trusted-and-ssl-self-signed-certificate"><strong>SSL Certificate Cannot Be Trusted and SSL Self-Signed Certificate</strong></h2>
+<p>Estos problemas simplemente los vamos a obviar debido que surgen por que tenemos un certificado autofirmadoo, y al no venir de una entidad de confianza nos detecta el certificado firmado por una entidad no autorizada.</p>
+<h3 id="solucion_1"><strong>Solución</strong></h3>
+<p>La simple y llana solución a este problema, es adquirir un certificado de una entidad verdaderamente certificadora.</p>
+<h2 id="ssl-medium-strength-cipher-suites-supported-sweet32"><strong>SSL Medium Strength Cipher Suites Supported (SWEET32)</strong></h2>
+<p>Esta fue la problemática más alta con la que me encontré la cual es nivel Hight, pero su solución es muy simple. Este problema surge debido a que el host remoto admite el uso de cifrados SSL que ofrecen un cifrado de fuerza media. Nessus considera que un cifrado de fuerza media es cualquier cifrado que utilice longitudes de clave de al menos 64 bits y menos de 112 bits, o bien que utilice el conjunto de cifrado 3DES.</p>
+<p>Esto es fácil de resolver entre comillas debido a que son unos parámetros un poco largos, pero hoy en día todo está en internet :) </p>
+<p>Nos vamos a fijar en el output que nos lanzó Nessus de los cifrados poco seguros que él encontró.</p>
+<pre><code class="language-bash">Medium Strength Ciphers (&gt; 64-bit and &lt; 112-bit key, or 3DES)
+
+    Name                          Code             KEX           Auth     Encryption             MAC
+    ----------------------        ----------       ---           ----     ---------------------  ---
+    EDH-RSA-DES-CBC3-SHA          0x00, 0x16       DH            RSA      3DES-CBC(168)          SHA1
+    ECDHE-RSA-DES-CBC3-SHA        0xC0, 0x12       ECDH          RSA      3DES-CBC(168)          SHA1
+    DES-CBC3-SHA                  0x00, 0x0A       RSA           RSA      3DES-CBC(168)          SHA1
+
+The fields above are :
+
+  {Tenable ciphername}
+  {Cipher ID code}
+  Kex={key exchange}
+  Auth={authentication}
+  Encrypt={symmetric encryption method}
+  MAC={message authentication code}
+  {export flag}
+</code></pre>
+<p>Visto los cifrados poco seguros que nos recomienda Nessus no admitir en nuestra web, haremos lo siguiente. Vamos a nuestro archivo <strong>ssl.conf </strong> que mencionamos anteriormente, y agregamos la siguiente línea</p>
+<pre><code class="language-bash">SSLCipherSuite ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GC$
+SSLHonorCipherOrder on
+SSLCompression off
+SSLSessionTickets off
+</code></pre>
+<p>Estos pámetros nos ayudarán a deshabilitar los cifrados no seguros que se vieron en el output de Nessus, Lo que hicimos aquí fue permitir todos los otros que Nessus no considera inseguros sin incluir lo que Nessus nos indicó.</p>
+<p>Nuestro archivo <strong>ssl.conf</strong> quedará en las última líneas de la siguiente manera.</p>
+<p><img alt="ne3" src="../img/ne3.png"/></p>
+<p>Hecho todo esto podemos decir que tenemos todo resuelto sobre los problemas que encontramos, por lo tanto solo nos queda reiniciar el servicio httpd que corresponde a apache, esto lo haremos con el comando. </p>
+<pre><code class="language-bash">systemctl restart httpd
+</code></pre>
+<p>y si no hemos recibido ningún output durante la ejecución del comando significa que todo está bien, de todas formas accedan a la web para confirmar que todo está bien.</p>
+<p>Si todo está correcto vuelven a realizar el mismo scan a su servidor web y veremos los resultados, los mios fueron los siguientes. <a href="../html/scan2.html">Click aquí para ver mi reporte</a></p>
+<p>Si ven mi reporte podemos notar que todo se ha solucionado a la perfección mejor la problemática del certificado que debe ser proveniente de una entidad autorizada.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../recursos/" title="7.Recursos">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../pass_cert/" title="5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../pass_cert/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../recursos/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

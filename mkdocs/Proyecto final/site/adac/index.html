@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>2.Habilitar Active Directory Certificate Authority - APACHE + AD + ADAC</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "2.Habilitar Active Directory Certificate Authority";
+    var mkdocs_page_input_path = "adac.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="adac.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> APACHE + AD + ADAC</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ad/">1.Implementar un dominio en Active Directory</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">2.Habilitar Active Directory Certificate Authority</a>
+<ul class="current">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ins-apache/">3.Instalar un servidor web en Linux utilizando Apache</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../unir_linux/">4.Añadir este servidor Linux a Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pass_cert/">5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nessus/">6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../recursos/">7.Recursos</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">APACHE + AD + ADAC</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>2.Habilitar Active Directory Certificate Authority</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="habilitar-active-directory-certificate-authority"><strong>Habilitar Active Directory Certificate Authority</strong></h1>
+<p>Como primer paso vamos a  ejecutar powershell como administrador, y verificaremos si el rol y sus componentes están disponibles para la instalación y si están instalados.</p>
+<pre><code class="language-powershell">Get-WindowsFeature | where {$_.name -like "adcs*" -or $_.name -like "ad-c*"}
+</code></pre>
+<p><img alt="ad14" src="../img/ad14.png"/></p>
+<p>En mi caso no tengo el rol instalado, por lo tanto vamos a instalar el servicio con el siguiente comando:</p>
+<pre><code class="language-powershell">Install-WindowsFeature adcs-cert-authority –IncludeManagementTools 
+</code></pre>
+<p><img alt="ad15" src="../img/ad15.png"/></p>
+<p>Terminado este proceso nos vamos a dirigir a nuestro <strong>SERVER MANAGER</strong> veremos la sección de notificaciones   con un warning, si damos click en él veremos que tiene que ver con nuestro AD AC, daremos click en <strong>CONFIGURE ACTIVE DIRECTORY CERTIFICATE SERVICES </strong></p>
+<p><img alt="ad16" src="../img/ad16.png"/></p>
+<p>Abierta la ventana de configuración, esperamos que cargue y cuando se encuentre lista daremos click en next.</p>
+<p><img alt="ad17" src="../img/ad17.png"/></p>
+<p>Ahora vamos a seleccionar el roles que queremos instalar de este servicio. </p>
+<p><img alt="ad18" src="../img/ad18.png"/></p>
+<p>Como siguiente paso el tipo de setup nuestra será Standalone CA, dabido a que solo es con motivos prácticos y de estudios.</p>
+<p><img alt="ad19" src="../img/ad19.png"/></p>
+<p>El tipo de CA lo pondremos como <strong>ROOT CA</strong></p>
+<p><img alt="ad20" src="../img/ad20.png"/></p>
+<p>Pasaremos a generar nuestra clave privada, ya que no tenemos ninguna dejamos seleccionada la primera opción para crear una nueva. seleccionada la opción damos click en next.</p>
+<p><img alt="ad21" src="../img/ad21.png"/></p>
+<p>Vamos a configurar la criptografía de la clave, vamos a dejar todo por defecto en este caso, dejando claro que estos son los parámetros de seguridad mínimos recomendados para las claves de cifrado.</p>
+<p><img alt="ad22" src="../img/ad22.png"/></p>
+<p>Ya en el siguiente paso tendremos que especificar el nombre del CA, windows server nos proporciona esta info automáticamente así que no tendremos que pasar ningún parámetro y dejamos todo como está.</p>
+<p><img alt="ad23" src="../img/ad23.png"/></p>
+<p>Hecho click en next, en el siguiente paso tendremos que especificar el tiempo de expiración del certificado, en nuestro caso lo dejaremos por default que son 5 años.</p>
+<p><img alt="ad24" src="../img/ad24.png"/></p>
+<p>Ya como último paso verificamos que los datos son los que deseamos, si es así damos click en configure.</p>
+<p><img alt="ad25" src="../img/ad25.png"/></p>
+<p><img alt="ad26" src="../img/ad26.png"/></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>En esta sección se cumplió con: <strong>Generar un certificado utilizando ADCA.</strong></p>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../ins-apache/" title="3.Instalar un servidor web en Linux utilizando Apache">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../ad/" title="1.Implementar un dominio en Active Directory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../ad/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../ins-apache/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

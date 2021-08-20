@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="None" name="description"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>APACHE + AD + ADAC</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet"/>
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="index.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> APACHE + AD + ADAC</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+<ul class="current">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ad/">1.Implementar un dominio en Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="adac/">2.Habilitar Active Directory Certificate Authority</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ins-apache/">3.Instalar un servidor web en Linux utilizando Apache</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="unir_linux/">4.Añadir este servidor Linux a Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pass_cert/">5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nessus/">6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="recursos/">7.Recursos</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">APACHE + AD + ADAC</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Home</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<p><img alt="logo" src="img/logo.png"/></p>
+<h1 id="proyecto-final-fundamentos-de-seguridad"><strong>Proyecto Final – Fundamentos de Seguridad</strong></h1>
+<hr/>
+<ol>
+<li>Implementar un dominio en Active Directory. </li>
+<li>Habilitar Active Directory Certificate Authority. </li>
+<li>Instalar un servidor web en Linux utilizando Apache. </li>
+<li>Añadir este servidor Linux a Active Directory. </li>
+<li>Generar un certificado utilizando ADCA. </li>
+<li>Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS. </li>
+<li>Debe redireccionar el tráfico HTTP a HTTPS. </li>
+<li>Utilizar Nessus para escanear las vulnerabilidades de su servidor. </li>
+<li>Aplicar las soluciones recomendadas por Nessus para resolver todas las  vulnerabilidades médium, high y critical.</li>
+</ol>
+<h1 id="objetivo"><strong>Objetivo</strong></h1>
+<p>En esta práctica tiene como objetivo aprender los conocimientos básicos, de como configurar un certificado SSL por medio de la característica de windows server (<strong>Active Directory Certificate Authority</strong>), muchas personas  sabrán hacerlo mediante <strong>lets encrypt</strong>, pero en este caso aprenderemos algo totalmente diferente pero con el mismo resultado.</p>
+<h1 id="definiciones"><strong>Definiciones</strong></h1>
+<p><strong>Dominio:</strong> El dominio es la unidad básica encargada de agrupar y de permitir la  eficiente gestión de usuarios, recursos compartidos permisos. Un controlador de dominio almacena los datos referentes a este,  usuarios, recursos etc y de controlar lo forma en a que estos pueden  interactuar entre si, principalmente mediante permisos.</p>
+<p><strong>Active Directory Certificate Authority: </strong>Permite emitir y gestionar  certificados digitales utilizados en sistemas de seguridad que emplean  tecnologías de clave pública. Los certificados digitales que <strong>AD</strong> CS proporciona se pueden utilizar para cifrar y firmar digitalmente documentos y mensajes electrónicos.</p>
+<p><strong>Active Directory:</strong> Active Directory o Directorio Activo son los términos que utiliza  Microsoft para referirse a su implementación de servicio de directorio  en una red distribuida de computadoras. Utiliza distintos protocolos,  principalmente LDAP, DNS, DHCP y Kerberos</p>
+<p><strong>Servidor web:</strong> Un servidor web o servidor HTTP es un programa informático que  procesa una aplicación del lado del servidor, realizando conexiones  bidireccionales o unidireccionales y síncronas o asíncronas con el  cliente y generando o cediendo una respuesta en cualquier lenguaje o  aplicación del lado del cliente.</p>
+<p><strong>Servidor HTTP Apache:</strong> El servidor HTTP Apache es un servidor web HTTP de código abierto, para plataformas Unix, Microsoft Windows, Macintosh y otras, que  implementa el protocolo HTTP/1.1 y la noción de sitio virtual según la  normativa RFC 2616.</p>
+<p><strong>Certificado web:</strong> Es un pequeño archivo de  datos que vincula digitalmente una clave criptográfica con los datos de  una organización. Una vez instalado en el servidor web, el <strong>certificado</strong> activa el candado y el protocolo https y, de esta forma, se habilita  una conexión segura desde el servidor web hasta el navegador.</p>
+<p><strong>HTTP:</strong> Es un protocolo de la capa de  aplicación para la transmisión de documentos hipermedia, como HTML. Se trata de un protocolo sin estado, lo que significa que el servidor no guarda ningún dato (estado) entre dos peticiones.</p>
+<p><strong>HTTPS:</strong> El Protocolo seguro de transferencia de hipertexto es un protocolo de aplicación basado en el protocolo HTTP, destinado a la transferencia segura de datos de hipertexto, es decir, es la versión segura de HTTP.</p>
+<p><strong>NESSUS:</strong> Nessus es un programa de escaneo de vulnerabilidades en diversos  sistemas operativos. Consiste en un demonio o diablo, nessusd, que  realiza el escaneo en el sistema objetivo, y nessus, el cliente que  muestra el avance e informa sobre el estado de los escaneos.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="ad/" title="1.Implementar un dominio en Active Directory">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="ad/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme_extra.js"></script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
+<!--
+MkDocs version : 1.2.2
+Build Date UTC : 2021-08-20 18:21:55.150591+00:00
+-->

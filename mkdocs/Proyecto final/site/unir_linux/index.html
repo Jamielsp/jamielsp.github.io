@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>4.Añadir este servidor Linux a Active Directory - APACHE + AD + ADAC</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "4.A\u00f1adir este servidor Linux a Active Directory";
+    var mkdocs_page_input_path = "unir_linux.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="unir_linux.pdf" rel="alternate" title="PDF Export" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> APACHE + AD + ADAC</a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ad/">1.Implementar un dominio en Active Directory</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../adac/">2.Habilitar Active Directory Certificate Authority</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ins-apache/">3.Instalar un servidor web en Linux utilizando Apache</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">4.Añadir este servidor Linux a Active Directory</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-y-configuracion">Instalación y configuración</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#verificacion">Verificación</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pass_cert/">5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../nessus/">6.Utilizar Nessus para escanear las vulnerabilidades de su servidor</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../recursos/">7.Recursos</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">APACHE + AD + ADAC</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>4.Añadir este servidor Linux a Active Directory</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="anadir-este-servidor-linux-a-active-directory"><strong>Añadir este servidor Linux a Active Directory</strong></h1>
+<hr/>
+<h2 id="instalacion-y-configuracion"><strong>Instalación y configuración</strong></h2>
+<p>Esto es un proceso no muy difícil de realizar.</p>
+<p>Primero tendremos que configurarle un hostname al equipo linux, esto lo hacemos con el siguiente comando.</p>
+<pre><code class="language-bash">hostname {nombre deseado} # hostname CENTOS
+</code></pre>
+<p><img alt="ul2" src="../img/ul2.png"/></p>
+<p>Ahora comenzaremos instalando las siguientes dependencias.</p>
+<pre><code class="language-bash">yum install realmd sssd ntpdate ntp oddjob oddjob-mkhomedir sssd samba-common-tools
+</code></pre>
+<p>Ya instaladas las dependencias procedemos a añadir el CENTOS a AD, con los siguientes comandos.</p>
+<pre><code class="language-bash">realm join --user=administrator@{DOMINIO} {DOMINIO}
+# EJEMPLO realm join --user=administrator@jamiel.com jamiel.com
+</code></pre>
+<p><img alt="ul" src="../img/ul1.png"/></p>
+<h2 id="verificacion"><strong>Verificación</strong></h2>
+<p>Hecho los pasos anteriores y vemos que nada nos ha lanzado ningún error procedemos a verificar en nuestro AD si el equipo se ha agregado exitosamente. Como vemos en la imagen todo ha salido a la perfección.</p>
+<p><img alt="ul3" src="../img/ul3.png"/></p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../pass_cert/" title="5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../ins-apache/" title="3.Instalar un servidor web en Linux utilizando Apache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../ins-apache/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../pass_cert/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

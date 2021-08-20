@@ -1,0 +1,19 @@
+site_name: APACHE + AD + ADAC
+theme: readthedocs
+nav:
+ - Home: 'index.md'
+ - 1.Implementar un dominio en Active Directory: 'ad.md'
+ - 2.Habilitar Active Directory Certificate Authority: 'adac.md'
+ - 3.Instalar un servidor web en Linux utilizando Apache: 'ins-apache.md'
+ - 4.Añadir este servidor Linux a Active Directory: 'unir_linux.md'
+ - 5.Instalar dicho certificado en su servidor Web y habilitar tráfico mediante HTTPS: 'pass_cert.md'
+ - 6.Utilizar Nessus para escanear las vulnerabilidades de su servidor: 'nessus.md'
+ - 7.Recursos: 'recursos.md'
+ 
+markdown_extensions:
+ - attr_list
+ - admonition
+
+plugins:
+ - search
+ - pdf-export
