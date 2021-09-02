@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Reto 2 - Wifi CTF (ReadteamRD)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Reto 2";
+    var mkdocs_page_input_path = "reto2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Wifi CTF (ReadteamRD)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../reto1/">Reto 1</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Reto 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cambiando-formato">Cambiando formato</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../reto3/">Reto 3</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Wifi CTF (ReadteamRD)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Reto 2</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="conseguir-credenciales-del-file-cakeguest_028ddb17732e"><strong>Conseguir credenciales del File CakeGuest_028ddb17732e</strong></h1>
+<hr />
+<p>Algo obligatorio en este CTF era hacer uso de <strong>hashcat</strong> para poder desifrar la password de del WIFI, por lo tanto si tenemos un poco de exp, sabemos que hashcat no trabaja con archivos PCAPS como los que nos proporcionaron, así que debemos buscar algún método para convertir este <strong>PCAP</strong>, en un formato complatible con hashcat. </p>
+<h2 id="cambiando-formato"><strong>Cambiando formato</strong></h2>
+<p>Con un poco de búsqueda en internet encontramos una forma, y es que descargándonos el repositorio de <strong>hashcat-utils</strong>, podemos hacer uso de un <strong>binario</strong> que nos permite hacer la conversión que queremos. Nos clonamos el repositorio con el siguiente comando.</p>
+<pre><code class="language-bash">git clone https://github.com/hashcat/hashcat-utils
+</code></pre>
+<p>Descargado el repositorio, accederemos a un dir llamado <strong>src</strong>, estado ahí podremos observar un binario llamado <strong>cap2hccapx</strong>, es el que nos ayudará a cumplir nuestro cometido. Solo tendremos que insertar el siguiente comando estando en el dir donde se encuentra el <strong>.bin</strong>.</p>
+<pre><code class="language-bash">./cap2hccpax.bin [file.pcap] [convertido.hccapx]
+</code></pre>
+<p><img alt="reto2" src="../img/reto2.png" /></p>
+<p>Veremos que obtuvimos el archivo convertido e incluso nos dice que el file contiene <strong>2 WPA Handshake</strong>, muy bien !!!</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p><strong>Ahora nos viene la pregunta ¿Qué sigue?, crackear el file obtenido..., correcto !!!</strong></p>
+</div>
+<p>Insertando el siguiente comando haciendo uso de hashcat obtendremos nuestro resultado deseado.</p>
+<pre><code class="language-bash">hashcat -m 2500 [file.hccapx] /usr/share/wordlist/rockyou.txt
+</code></pre>
+<p>En el comando vemos que estamos haciendo uso del módulo 2500 de hashcat este módulo su nombre es <strong>WPA-EAPOL-PBKDF2</strong>, específicamente para crackear este tipo de protocolos de red, luego le pasamos el file que convertimos y por último le pasamos el wordlist que vamos a usar para crackear. Después de esperar un buen rato (esto va a depender de los recursos de tu PC), obtenemos el resultado.</p>
+<p><img alt="reto2_2" src="../img/reto2_2.png" /></p>
+<p><strong>Lo logramos :)</strong></p>
+<p><img alt="complete2" src="../img/complete2.gif" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reto3/" class="btn btn-neutral float-right" title="Reto 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../reto1/" class="btn btn-neutral" title="Reto 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../reto1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../reto3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

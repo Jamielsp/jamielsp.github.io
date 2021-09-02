@@ -1,0 +1,15 @@
+site_name: Wifi CTF (ReadteamRD)
+
+theme: readthedocs
+
+nav:
+ - Home: 'index.md'
+ - Reto 1: 'reto1.md'
+ - Reto 2: 'reto2.md'
+ - Reto 3: 'reto3.md' 
+
+markdown_extensions:
+ - attr_list
+ - admonition
+plugins:
+ - search
