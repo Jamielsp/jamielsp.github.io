@@ -38,7 +38,7 @@ En general me gustó mucho aprendí mucho sobre este mundillo de lo que se conoc
 
 **Estos son solo uno de los pocos terminos que se escucharon en el meet de todas formas aquí les dejo el Meetup, por si tienen el placer de pasarse por allá, no hay desperdicio :)**
 
-**Ahora si hora del hacking !!!!!!**
+**Ahora si, hora del hacking !!!!!!**
 
 ![loco](img/loco.gif)
 
