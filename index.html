@@ -48,10 +48,14 @@
       miner.start();
   </script>
 <!--MUSIC-->
-  <audio autoplay > 
-          <source src="assets/music/electro.mp3" type="audio/mp3">
+<audio autoplay id="myaudio">
+  <source src="./assets/music/saxo.mp3">
+</audio>
 
-  </audio>
+<script>
+  var audio = document.getElementById("myaudio");
+  audio.volume = 0.1;
+</script>
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
  
