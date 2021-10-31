@@ -1,4 +1,4 @@
-site_name: Wifi CTF (ReadteamRD)
+site_name: BLUE Machine THM
 
 theme: readthedocs
 
@@ -8,7 +8,7 @@ nav:
  - Gain Access: 'gain_access.md'
  - Escalate: 'escalate.md'
  - Cracking: 'cracking.md'
- - find_flags: 'find_flags.md'
+ - Find_flags: 'find_flags.md'
 
 
 markdown_extensions:
