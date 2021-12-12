@@ -1,0 +1,13 @@
+site_name: Pickle Rick Machine THM
+theme: readthedocs
+nav:
+ - Home: 'index.md'
+ - 1. Enumeración BB >_<: 'enumeracion.md'
+ - 2. Explotando >_<: 'explotacion.md'
+
+markdown_extensions:
+ - attr_list
+ - admonition
+
+plugins:
+ - search

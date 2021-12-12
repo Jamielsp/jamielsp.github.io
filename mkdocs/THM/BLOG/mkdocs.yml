@@ -1,0 +1,18 @@
+site_name: BLUE Machine THM
+
+theme: readthedocs
+
+nav:
+ - Home: 'index.md'
+ - Recon: 'recon.md'
+ - Gain Access: 'gain_access.md'
+ - Escalate: 'escalate.md'
+ - Cracking: 'cracking.md'
+ - Find_flags: 'find_flags.md'
+
+
+markdown_extensions:
+ - attr_list
+ - admonition
+plugins:
+ - search
