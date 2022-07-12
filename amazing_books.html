@@ -61,7 +61,7 @@
         <ul>
           <li><a href="index.html" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="index.html" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>writeup</span></a></li>
+          <li><a href="writeup.html" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>writeup</span></a></li>
           <li><a href="index.html" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
           <li><a href="#Amazing Books" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Amazing Books</span></a></li>
 
@@ -80,7 +80,30 @@
 
   <main id="main">
 
-   
+    <!DOCTYPE html>
+    <html>
+          
+    <head>
+        <title>
+            Creating Search Bar using HTML
+            CSS and Javascript
+        </title>
+          
+        <!-- linking the stylesheet(CSS) -->
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+      
+    <body>
+          
+        <!-- input tag -->
+       
+
+          
+        <!-- linking javascript -->
+        <script src="./animals.js"></script>
+    </body>
+      
+    </html>
 
       <!-- ======= Portfolio Section ======= -->
       <section id="portfolio" class="portfolio section-bg">
@@ -96,41 +119,44 @@
               <ul id="portfolio-flters">
                 <li data-filter="*" class="filter-active">All</li>
                 <li data-filter=".filter-app">Tools</li>
-                <li data-filter=".filter-card">Red Team</li>
-                <li data-filter=".filter-web">Blue team</li>
+                <li data-filter=".filter-rt">Red Team</li>
+                <li data-filter=".filter-bt">Blue team</li>
+                <li data-filter=".filter-sc">Scripting</li>
+
               </ul>
             </div>
           </div>
-  
+
+    <!-- input tag -->
+     
           <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-  
+            
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="assets/book_img/netcat.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/book_img/background.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Asterisk"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/tools.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a name="books"  href="assets/book_img/netcat.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Netcat"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/netcat.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
-  
-  
+            
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="/assets/book_img/powerview.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="/assets/book_img/powerview.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Uyuni"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/Red_Team_Operation_Course_Online__1647000050.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a name="books" href="/assets/book_img/powerview.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="powerview"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/powerview.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
-  
+            
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="assets/book_img/metasploit.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/book_img/metasploit.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Owncloud"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/MS_SQL_Penetration_Testing_Training_Program_Online__1655159213.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/book_img/metasploit.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="metasploit"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/metasploit.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -139,94 +165,122 @@
               <div class="portfolio-wrap">
                 <img src="assets/book_img/bloodhound.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/book_img/bloodhound.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="DNSSEC"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/bloodhound.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/book_img/bloodhound.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="bloodhound"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/bloodhound.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
   
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/openscap.png" class="img-fluid" alt="">
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/openscap.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="openScap"><i class="bx bx-plus"></i></a>
-                  <a href="trabajos/openscap.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
+    
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="assets/book_img/nmap.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/bacula.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bácula"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/nmap.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/img/portfolio/bacula.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="nmap"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/nmap.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
   
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/ntlm.jpg" class="img-fluid" alt="">
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/ntlm.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Ntlm BLOCK"><i class="bx bx-plus"></i></a>
-                  <a href="trabajos/ntlmblock.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/bitlocker.jpg" class="img-fluid" alt="">
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/bitlocker.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bitlocker"><i class="bx bx-plus"></i></a>
-                  <a href="trabajos/bitlocker.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/mcafee.jpg" class="img-fluid" alt="">
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/mcafee.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="McAfee"><i class="bx bx-plus"></i></a>
-                  <a href="trabajos/mcafee.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
+
+
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img src="assets/book_img/burp.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/book_img/burp.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="security onion"><i class="bx bx-plus"></i></a>
-                  <a href="/assets/pdfs/burp.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/book_img/burp.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="burp"><i class="bx bx-plus"></i></a>
+                  <a href="/assets/pdfs/Tools/burp.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-c">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/web_sec_guide.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/web_sec_guide.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="openScap"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Blue Team/web_sec_guide.pdf " title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
   
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-rt">
               <div class="portfolio-wrap">
-                <img src="assets/img/logos/ap_ssl_logo.png    " class="img-fluid" alt="">
+                <img src="assets/book_img/pentesting_report_bitcoin.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/logos/ap_ssl_logo.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="N/A"><i class="bx bx-plus"></i></a>
-                  <a href="mkdocs/Proyecto final/site/index.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/book_img/pentesting_report_bitcoin.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bácula"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Red Team/report_pentesting_bitcoin.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-rt">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/Darkweb.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/Darkweb.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Ntlm BLOCK"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Red Team/Darkweb.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-bt">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/azure_fundamentals.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/azure_fundamentals.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bitlocker"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Blue Team/Azure_Fundamentals.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-bt">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/build_soc.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/build_soc.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="McAfee"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Blue Team/Build_Open_Source_SIEM_HA_Using_Wazuh_Docker_Swarm_1644068473.pdf" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+  
+           
+  
+            <div class="col-lg-4 col-md-6 portfolio-item filter-rt">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/pentesting_checklist.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/pentesting_checklist.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="N/A"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Red Team/pentesting_checklist.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
            
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-rt">
               <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/dnssec.png" class="img-fluid" alt="">
+                <img src="assets/book_img/credential_dumping.png" class="img-fluid" alt="">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/dnssec.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="N/A"><i class="bx bx-plus"></i></a>
-                  <a href="trabajos/dnsec.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="assets/book_img/credential_dumping.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="N/A"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Red Team/credential_dumping.pdf" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-rt">
+              <div class="portfolio-wrap">
+                <img src="assets/book_img/msfvenom.png" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="assets/book_img/msfvenom.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="N/A"><i class="bx bx-plus"></i></a>
+                  <a href="assets/pdfs/Red Team/Msfvenom_Cheatsheet_windows_exploitation.pdf title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+            
 
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ 
+ 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
