@@ -1,0 +1,13 @@
+site_name: Snoopy Writeup - Hackthebox
+
+theme: readthedocs
+
+nav:
+ - Home: 'index.md'
+
+
+markdown_extensions:
+ - attr_list
+ - admonition
+plugins:
+ - search
